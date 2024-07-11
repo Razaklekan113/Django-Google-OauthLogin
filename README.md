@@ -3,7 +3,12 @@
 This is a simple Google OAuth login using Django social authentication.
 
 ## Instructions
-1. Ensure you have Django and the necessary social authentication packages installed.
+
+1. Ensure you have installed Django and the necessary social authentication packages by running the following command in your terminal or command prompt:
+
+   ```bash
+   pip install -r requirements.txt
+   
 2. Replace `provider_login_url 'google'` with your actual provider name if different.
 3. Customize styles and functionality as needed for your project.
 
