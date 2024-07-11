@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Google Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4285F4;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #357AE8;
+        }
+        .logout {
+            color: #db4437;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+        .logout:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% load socialaccount %}
+        <h2>Google Login</h2>
+        <a href="{% provider_login_url 'google' %}?next=/" class="button">Login With Google</a>
+
+        {% if user.is_authenticated %}
+        <p>You are signed in as {{ user.email }}</p>
+        <a href="/logout" class="logout">Logout</a>
+        {% endif %}
+    </div>
+</body>
+</html>
